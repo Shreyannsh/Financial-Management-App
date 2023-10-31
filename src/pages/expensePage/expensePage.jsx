@@ -8,6 +8,8 @@ function ExpensePage() {
   const expenses = useSelector((state) => state.expense);
   const [show, setShow] = useState(false);
 
+  const totalExpense = expenses.reduce((acc, crr) => acc + crr.amount, 0);
+
   useEffect(() => {
     dispatch(fetch_expense());
   }, []);
@@ -39,6 +41,10 @@ function ExpensePage() {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <th>Total Expense</th>
+          <td>{totalExpense}</td>
+        </tfoot>
       </table>
     </div>
   );

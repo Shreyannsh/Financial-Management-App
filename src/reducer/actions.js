@@ -74,7 +74,7 @@ export const add_income = (income) => async (dispatch) => {
 export const add_expense = (expense) => async (dispatch) => {
   try {
     const response = await axios.post(
-      "https://financial-app-backend.vercel.app/v1/api/income/add-income",
+      "https://financial-app-backend.vercel.app/v1/api/expense/add-expense",
       expense
     );
 

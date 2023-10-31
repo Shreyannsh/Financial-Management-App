@@ -7,9 +7,10 @@ import IncomeModal from "../../components/incomeModal/incomeModal";
 function IncomePage() {
   const dispatch = useDispatch();
   const incomeData = useSelector((state) => state.income);
-  console.log(incomeData);
 
   const [show, setShow] = useState(false);
+
+  const totalIncome = incomeData.reduce((acc, crr) => acc + crr.amount, 0);
 
   useEffect(() => {
     dispatch(fetch_income());
@@ -40,6 +41,10 @@ function IncomePage() {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <th>Total Income</th>
+          <td>{totalIncome}</td>
+        </tfoot>
       </table>
     </div>
   );

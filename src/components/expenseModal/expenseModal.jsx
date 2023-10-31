@@ -24,6 +24,11 @@ function ExpenseModal(props) {
       setCategories([...categories, expense.category]);
     }
     setOtherCat(false);
+    setExpense({
+      amount: 0,
+      description: "",
+      category: "",
+    });
   };
 
   const [otherCat, setOtherCat] = useState(false);
@@ -37,6 +42,7 @@ function ExpenseModal(props) {
       <label>
         Description
         <input
+          value={expense.description}
           type="text"
           onChange={(e) =>
             setExpense({ ...expense, description: e.target.value })
@@ -46,11 +52,14 @@ function ExpenseModal(props) {
       <label>
         Category
         <select
-          onChange={(e) =>
-            e.target.value === "other"
-              ? setOtherCat(true)
-              : setExpense({ ...expense, category: e.target.value })
-          }
+          onChange={(e) => {
+            if (e.target.value === "other") {
+              setOtherCat(true);
+            } else {
+              setOtherCat(false);
+              setExpense({ ...expense, category: e.target.value });
+            }
+          }}
         >
           <option>Select</option>
           {categories.map((cat) => (
@@ -66,6 +75,7 @@ function ExpenseModal(props) {
             Add Category
             <input
               type="text"
+              value={expense.category}
               onChange={(e) =>
                 setExpense({ ...expense, category: e.target.value })
               }
@@ -78,7 +88,10 @@ function ExpenseModal(props) {
         Amount
         <input
           type="text"
-          onChange={(e) => setExpense({ ...expense, amount: e.target.value })}
+          value={expense.amount}
+          onChange={(e) =>
+            setExpense({ ...expense, amount: Number(e.target.value) })
+          }
         />
       </label>
 

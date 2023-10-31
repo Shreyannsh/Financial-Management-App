@@ -10,10 +10,12 @@ function IncomeModal(props) {
     amount: 0,
   });
 
-  console.log(income);
-
   const addIncomeBtn = () => {
     dispatch(add_income(income));
+    setIncome({
+      amount: 0,
+      description: "",
+    });
   };
 
   if (!props.show) {
@@ -25,6 +27,7 @@ function IncomeModal(props) {
       <label>
         Description
         <input
+          value={income.description}
           type="text"
           onChange={(e) =>
             setIncome({ ...income, description: e.target.value })
@@ -34,6 +37,7 @@ function IncomeModal(props) {
       <label>
         Amount
         <input
+          value={income.amount}
           type="number"
           onChange={(e) => setIncome({ ...income, amount: e.target.value })}
         />

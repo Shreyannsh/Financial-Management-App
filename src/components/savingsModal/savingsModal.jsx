@@ -9,7 +9,7 @@ function AddSavingsModal(props) {
     description: "",
     category: "",
   });
-  const [ohterCat, setOtherCat] = useState(false);
+  const [otherCat, setOtherCat] = useState(false);
 
   const [categories, setCategories] = useState([
     "Marriage",
@@ -24,6 +24,12 @@ function AddSavingsModal(props) {
     if (!categories.includes(saving.category)) {
       setCategories([...categories, saving.category]);
     }
+
+    setSaving({
+      amount: 0,
+      description: "",
+      category: "",
+    });
   };
 
   if (!props.show) {
@@ -35,20 +41,25 @@ function AddSavingsModal(props) {
       <label>
         Description
         <input
+          value={saving.description}
           type="text"
           onChange={(e) =>
-            setSaving({ ...saving, description: e.target.value })
+            setSaving({ ...saving, description: e.target.value }) &&
+            setOtherCat(false)
           }
         />
       </label>
       <label>
         Category
         <select
-          onChange={(e) =>
-            e.target.value === "other"
-              ? setOtherCat(true)
-              : setSaving({ ...saving, category: e.target.value })
-          }
+          onChange={(e) => {
+            if (e.target.value === "other") {
+              setOtherCat(true);
+            } else {
+              setSaving({ ...saving, category: e.target.value });
+              setOtherCat(false);
+            }
+          }}
         >
           <option>Select</option>
           {categories.map((cat) => (
@@ -60,16 +71,18 @@ function AddSavingsModal(props) {
       <label>
         Amount
         <input
+          value={saving.amount}
           type="number"
           onChange={(e) => setSaving({ ...saving, amount: e.target.value })}
         />
       </label>
       <div>
-        {ohterCat && (
+        {otherCat && (
           <label>
             Add Category
             <input
               type="text"
+              value={saving.category}
               onChange={(e) =>
                 setSaving({ ...saving, category: e.target.value })
               }
