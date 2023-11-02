@@ -1,3 +1,5 @@
+import "./financialReport.css";
+
 import { useState } from "react";
 
 import IncomeVsExpense from "../../components/incomeVsExpense/incomeVsExpense";
@@ -22,7 +24,7 @@ function FinancialReport() {
   };
 
   return (
-    <div>
+    <div className="financialReport">
       <div>
         <h2>Type of report</h2>
         <select onChange={(e) => setOption(e.target.value)}>

@@ -1,3 +1,4 @@
+import "./incomeModal.css";
 import { useDispatch } from "react-redux";
 import { add_income } from "../../reducer/actions";
 import { useState } from "react";
@@ -23,10 +24,11 @@ function IncomeModal(props) {
   }
 
   return (
-    <div>
+    <div className="addModal">
       <label>
-        Description
+        <b> Description </b>
         <input
+          className="inputField"
           value={income.description}
           type="text"
           onChange={(e) =>
@@ -35,17 +37,18 @@ function IncomeModal(props) {
         />
       </label>
       <label>
-        Amount
+        <b>Amount</b>
         <input
+          className="inputField"
           value={income.amount}
           type="number"
           onChange={(e) => setIncome({ ...income, amount: e.target.value })}
         />
       </label>
 
-      <div>
-        <button onClick={() => addIncomeBtn()}>Add</button>
-      </div>
+      <button className="addBtn" onClick={() => addIncomeBtn()}>
+        Add
+      </button>
     </div>
   );
 }

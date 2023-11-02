@@ -1,3 +1,5 @@
+import "./savingsModal.css";
+
 import { useState } from "react";
 import { add_savings } from "../../reducer/actions";
 import { useDispatch } from "react-redux";

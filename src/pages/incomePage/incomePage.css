@@ -1,0 +1,54 @@
+.incomePage {
+  /* margin-top: 2rem; */
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-right: 2rem;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: 900;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2rem;
+}
+
+td {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  text-align: left;
+}
+
+td,
+th {
+  border: 2px solid;
+  border-spacing: 0;
+  padding: 5px 20px;
+  font-size: larger;
+}
+
+.buttonSection {
+  display: flex;
+  justify-content: space-between;
+  margin: 3rem 0rem 0.8rem 0rem;
+}
+
+.addMainBtn {
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-left: 5px;
+  font-weight: bolder;
+  background-color: rgb(206, 14, 14);
+  color: antiquewhite;
+  cursor: pointer;
+}
+
+.addMainBtn:hover {
+  background-color: rgb(150, 12, 12);
+  color: antiquewhite;
+}
