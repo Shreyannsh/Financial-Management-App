@@ -1,9 +1,7 @@
 .financialReport {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 0rem;
   gap: 3rem;
 }
 
