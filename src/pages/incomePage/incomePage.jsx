@@ -35,6 +35,7 @@ function IncomePage() {
 
   useEffect(() => {
     dispatch(fetch_income());
+    dispatch({ type: "IS_ACTIVE", payload: "incomePage" });
   }, []);
 
   return (
@@ -47,7 +48,7 @@ function IncomePage() {
         </button>
         <span>
           <span>
-            <b>SortBy - </b>
+            <b>SortBy- </b>
           </span>
           <label>
             <input
@@ -90,9 +91,11 @@ function IncomePage() {
           ))}
         </tbody>
         <tfoot>
-          <td></td>
-          <th>Total Income</th>
-          <td>&#8377; {totalIncome}</td>
+          <tr>
+            <td></td>
+            <th>Total Income</th>
+            <td>&#8377; {totalIncome}</td>
+          </tr>
         </tfoot>
       </table>
     </div>

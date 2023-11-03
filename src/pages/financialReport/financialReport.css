@@ -1,3 +1,52 @@
 .financialReport {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0rem;
+  gap: 3rem;
+}
+
+.reportHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.reportHeading {
+  font-size: 3rem;
+}
+
+.reportOption {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: rgb(206, 14, 14, 0.9);
+  box-shadow: 1px 1px 1px 1px rgb(0, 0, 0, 0.9);
+  color: antiquewhite;
+  max-width: fit-content;
+  cursor: pointer;
+}
+
+.reportOption:hover {
+  background-color: rgb(206, 14, 14);
+}
+
+.generateBtn {
+  margin-left: 3rem;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: rgb(27, 165, 57);
+  color: antiquewhite;
+  max-width: fit-content;
+  cursor: pointer;
+}
+
+.generateBtn:hover {
+  background-color: rgb(31, 124, 51);
+  color: antiquewhite;
 }

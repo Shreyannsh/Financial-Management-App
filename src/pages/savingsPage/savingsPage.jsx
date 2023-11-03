@@ -47,6 +47,7 @@ function SavingsPage() {
 
   useEffect(() => {
     dispatch(fetch_savings());
+    dispatch({ type: "IS_ACTIVE", payload: "savingsPage" });
   }, []);
 
   return (
@@ -58,35 +59,42 @@ function SavingsPage() {
         </button>
 
         <span>
-          <span>Sort by -</span>
+          <span>
+            <b>Sort by- </b>
+          </span>
           <label>
-            High to Low
             <input
               type="radio"
               value="highToLow"
               name="sortByAmount"
               onChange={(e) => setSortByOption(e.target.value)}
             />
+            High to Low
           </label>
           <label>
-            Low to High
             <input
               type="radio"
               value="lowToHigh"
               name="sortByAmount"
               onChange={(e) => setSortByOption(e.target.value)}
             />
-          </label>
-          <label>
-            <select onChange={(e) => setFilterOption(e.target.value)}>
-              <option value="">All</option>
-              {categoryList?.map((categoryName) => (
-                <option value={categoryName}>{categoryName}</option>
-              ))}
-            </select>
-            Filter By Category
+            Low to High
           </label>
         </span>
+        <label>
+          <select
+            className="filterSelect"
+            onChange={(e) => setFilterOption(e.target.value)}
+          >
+            <option value="">All</option>
+            {categoryList?.map((categoryName) => (
+              <option key={categoryName} value={categoryName}>
+                {categoryName}
+              </option>
+            ))}
+          </select>
+          Filter By Category
+        </label>
       </div>
 
       <AddSavingsModal onClose={() => setShow(!show)} show={show} />

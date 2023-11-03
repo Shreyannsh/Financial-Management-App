@@ -1,23 +1,23 @@
 .App {
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  /* height: 100vh; */
+  height: 100%;
+  width: 100%;
+  background-color: rgba(231, 173, 25, 0.6);
 }
 
 .allPages {
-  /* margin-left: 25rem; */
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding-top: 4rem;
-  padding-left: 10rem;
   z-index: 10;
-  background-color: rgba(231, 173, 25, 0.6);
   height: 100%;
   padding-bottom: 3rem;
+  width: 100%;
 }
 
 .App-header {

@@ -15,6 +15,7 @@ function IncomeVsExpense(props) {
 
   return (
     <div>
+      <h1>Income Vs Expense</h1>
       <table>
         <thead>
           <tr>
@@ -25,9 +26,9 @@ function IncomeVsExpense(props) {
         </thead>
         <tbody>
           <tr>
-            <td>{totalIncome}</td>
-            <td>{totalExpense}</td>
-            <td>{totalSaving}</td>
+            <td>&#8377; {totalIncome}</td>
+            <td>&#8377; {totalExpense}</td>
+            <td>&#8377; {totalSaving}</td>
           </tr>
         </tbody>
       </table>

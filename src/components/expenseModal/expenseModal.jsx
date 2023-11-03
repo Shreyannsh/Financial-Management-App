@@ -1,5 +1,10 @@
+//import "./expenseModal.css";
+import "../../commonCSS.css";
+
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+
 import { add_expense } from "../../reducer/actions";
 
 function ExpenseModal(props) {
@@ -19,16 +24,21 @@ function ExpenseModal(props) {
   ]);
 
   const expenseAddBtn = () => {
-    dispatch(add_expense(expense));
-    if (!categories.includes(expense.category)) {
-      setCategories([...categories, expense.category]);
+    const values = Object.values(expense);
+    if (values.includes("") || values.includes(0)) {
+      toast.error("Please provide all values !");
+    } else {
+      dispatch(add_expense(expense));
+      if (!categories.includes(expense.category)) {
+        setCategories([...categories, expense.category]);
+      }
+      setOtherCat(false);
+      setExpense({
+        amount: 0,
+        description: "",
+        category: "",
+      });
     }
-    setOtherCat(false);
-    setExpense({
-      amount: 0,
-      description: "",
-      category: "",
-    });
   };
 
   const [otherCat, setOtherCat] = useState(false);
@@ -38,10 +48,11 @@ function ExpenseModal(props) {
   }
 
   return (
-    <div>
+    <div className="addModal">
       <label>
         Description
         <input
+          className="inputField"
           value={expense.description}
           type="text"
           onChange={(e) =>
@@ -52,6 +63,7 @@ function ExpenseModal(props) {
       <label>
         Category
         <select
+          className="inputField"
           onChange={(e) => {
             if (e.target.value === "other") {
               setOtherCat(true);
@@ -61,32 +73,34 @@ function ExpenseModal(props) {
             }
           }}
         >
-          <option>Select</option>
+          <option value="">Select</option>
           {categories.map((cat) => (
-            <option value={cat}>{cat}</option>
+            <option key={cat} value={cat}>
+              {cat}
+            </option>
           ))}
           <option value="other">Add other</option>
         </select>
       </label>
 
-      <div>
-        {otherCat && (
-          <label>
-            Add Category
-            <input
-              type="text"
-              value={expense.category}
-              onChange={(e) =>
-                setExpense({ ...expense, category: e.target.value })
-              }
-            />
-          </label>
-        )}
-      </div>
+      {otherCat && (
+        <label>
+          Add Category
+          <input
+            className="inputField addCategory"
+            type="text"
+            value={expense.category}
+            onChange={(e) =>
+              setExpense({ ...expense, category: e.target.value })
+            }
+          />
+        </label>
+      )}
 
       <label>
         Amount
         <input
+          className="inputField amount"
           type="text"
           value={expense.amount}
           onChange={(e) =>
@@ -95,7 +109,9 @@ function ExpenseModal(props) {
         />
       </label>
 
-      <button onClick={() => expenseAddBtn()}>Add</button>
+      <button className="addBtn" onClick={() => expenseAddBtn()}>
+        Add
+      </button>
     </div>
   );
 }

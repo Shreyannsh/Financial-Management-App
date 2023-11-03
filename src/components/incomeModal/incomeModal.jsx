@@ -1,4 +1,8 @@
-import "./incomeModal.css";
+//import "./incomeModal.css";
+import "../../commonCSS.css";
+
+import { toast } from "react-toastify";
+
 import { useDispatch } from "react-redux";
 import { add_income } from "../../reducer/actions";
 import { useState } from "react";
@@ -12,11 +16,16 @@ function IncomeModal(props) {
   });
 
   const addIncomeBtn = () => {
-    dispatch(add_income(income));
-    setIncome({
-      amount: 0,
-      description: "",
-    });
+    const values = Object.values(income);
+    if (!values.includes("") || values.includes(0)) {
+      dispatch(add_income(income));
+      setIncome({
+        amount: 0,
+        description: "",
+      });
+    } else {
+      toast.error("Please provide all values !");
+    }
   };
 
   if (!props.show) {

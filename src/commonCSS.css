@@ -1,0 +1,103 @@
+/* css for modals */
+
+.addModal {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0rem;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+.inputField {
+  border-radius: 5px;
+  margin-left: 5px;
+  margin-right: 8px;
+  padding-left: 5px;
+}
+
+.addCategory {
+  width: 5rem;
+}
+
+.amount {
+  width: 5rem;
+}
+
+.addBtn {
+  border-radius: 5px;
+  padding: 0px 5px;
+  margin-left: 5px;
+  font-weight: bolder;
+  background-color: rgb(206, 14, 14);
+  color: antiquewhite;
+  cursor: pointer;
+}
+
+/* css for main dispay pages */
+
+.title {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-right: 2rem;
+}
+
+.buttonSection {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  margin: 2rem 0rem 0.8rem 0rem;
+}
+
+.addMainBtn {
+  border-radius: 5px;
+  padding: 5px 5px;
+  margin-left: 5px;
+  font-weight: bolder;
+  background-color: rgb(206, 14, 14);
+  color: antiquewhite;
+  cursor: pointer;
+}
+
+.addMainBtn:hover {
+  background-color: rgb(150, 12, 12);
+  color: antiquewhite;
+}
+
+.filterSelect {
+  border-radius: 5px;
+  margin-right: 5px;
+  padding: 2px;
+}
+
+/* css for table below */
+
+table {
+  border-collapse: collapse;
+  max-width: max-content;
+  min-width: none;
+  margin-top: 1rem;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0);
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+th {
+  font-weight: 900;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2rem;
+}
+
+td {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 600;
+  text-align: left;
+}
+
+td,
+th {
+  border: 2px solid;
+  border-spacing: 0;
+  padding: 5px 20px;
+  font-size: larger;
+}

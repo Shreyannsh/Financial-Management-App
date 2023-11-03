@@ -29,6 +29,8 @@ function ExpenseBreakdown(props) {
 
   return (
     <div>
+      <h1>Expense Breakdown</h1>
+
       <table>
         <thead>
           <tr>
@@ -39,10 +41,10 @@ function ExpenseBreakdown(props) {
         </thead>
         <tbody>
           {expenseBreakdown?.map((cat, index) => (
-            <tr>
+            <tr key={index}>
               <td>{index + 1}</td>
               <th>{cat.category}</th>
-              <td>{cat.total}</td>
+              <td>&#8377; {cat.total}</td>
             </tr>
           ))}
         </tbody>

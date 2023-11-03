@@ -2,32 +2,41 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   text-align: left;
   box-shadow: 1px 5px 5px 1px rgba(124, 121, 121, 0.6);
-
-  /* border-right: 1px solid; */
-  margin-right: 2rem;
+  margin-right: 0rem;
   margin-top: 4.5rem;
-  padding-top: -2rem;
-  padding: 0rem 1rem;
-  height: 100%;
-  position: fixed;
+  padding: 1.3rem 1rem;
+  height: auto;
   z-index: 98;
+  width: fit-content;
 }
 
 .pageLink {
   text-decoration: none;
   color: black;
   font-weight: bolder;
-  font-size: 1.3rem;
-  padding: 0.8rem;
-  margin-bottom: 5rem;
+  font-size: 1.5rem;
+  padding: 10px 5px 10px 5px;
+  margin-bottom: 4rem;
   border-radius: 5px;
 }
 
+.isActive {
+  text-decoration: none;
+  color: black;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  padding: 10px 5px 10px 5px;
+  margin-bottom: 4rem;
+  border-radius: 5px;
+  background-color: rgb(206, 14, 14, 0.9);
+  color: antiquewhite;
+}
+
 .pageLink:hover {
-  background-color: rgba(155, 17, 17);
+  background-color: rgb(206, 14, 14, 0.9);
   color: antiquewhite;
 }

@@ -1,0 +1,14 @@
+.loader {
+  height: 30vh;
+  width: 30vh;
+}
+
+.parent {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0, 0.4);
+  z-index: 1000;
+}

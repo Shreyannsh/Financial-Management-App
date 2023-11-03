@@ -49,6 +49,7 @@ function ExpensePage() {
 
   useEffect(() => {
     dispatch(fetch_expense());
+    dispatch({ type: "IS_ACTIVE", payload: "expensePage" });
   }, []);
 
   return (
@@ -61,7 +62,7 @@ function ExpensePage() {
         </button>
         <span>
           <span>
-            <b>SortBy -</b>{" "}
+            <b>SortBy- </b>
           </span>
           <label>
             <input
@@ -81,17 +82,22 @@ function ExpensePage() {
             />
             Low to High
           </label>
-
-          <label>
-            <select onChange={(e) => setFilterOption(e.target.value)}>
-              <option value="">All</option>
-              {categoryList.map((categoryName) => (
-                <option value={categoryName}>{categoryName}</option>
-              ))}
-            </select>
-            Filter By Category
-          </label>
         </span>
+
+        <label>
+          <select
+            className="filterSelect"
+            onChange={(e) => setFilterOption(e.target.value)}
+          >
+            <option value="">All</option>
+            {categoryList.map((categoryName) => (
+              <option key={categoryName} value={categoryName}>
+                {categoryName}
+              </option>
+            ))}
+          </select>
+          Filter By Category
+        </label>
       </div>
 
       <ExpenseModal show={show} />
@@ -116,10 +122,12 @@ function ExpensePage() {
           ))}
         </tbody>
         <tfoot>
-          <td></td>
-          <td></td>
-          <th>Total Expense</th>
-          <td>&#8377; {totalExpense}</td>
+          <tr>
+            <td></td>
+            <td></td>
+            <th>Total Expense</th>
+            <td>&#8377; {totalExpense}</td>
+          </tr>
         </tfoot>
       </table>
     </div>

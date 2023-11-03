@@ -11,6 +11,8 @@ const initialState = {
   income: [],
   expense: [],
   saving: [],
+  isActive: "",
+  isLoading: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -32,6 +34,15 @@ const reducer = (state = initialState, action) => {
 
     case ADD_SAVING:
       return { ...state, saving: [...state.saving, action.payload] };
+
+    case "IS_ACTIVE":
+      return { ...state, isActive: action.payload };
+
+    case "START_LOADING":
+      return { ...state, isLoading: true };
+
+    case "STOP_LOADING":
+      return { ...state, isLoading: false };
 
     default:
       return state;
